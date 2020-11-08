@@ -1,5 +1,5 @@
 from PIL import Image, ImageDraw, ImageFont
-# def tatouage(filename,outer_file="outer_file",prenom='prenom',nom='nom',x=10,y=10,ratio=1):
+
 
 def getname_without_ext(filename):
     s = filename.split('.')
@@ -12,10 +12,10 @@ def getname_without_ext(filename):
 def tagimg(filename, prenom, nom, ratio):
     """
 
-    :param filename: tagimg.py str
-    :param prenom: djibril str
-    :param nom: thiongane str
-    :param ratio: float
+    :param filename: the filename of image : str
+    :param prenom: the surname you want to display :str
+    :param nom: the name you want to display  str
+    :param ratio: the ratio (float) ex: 2 or 2.0 to divide the size per 2
     :return: void
     """
     base = Image.open(filename).convert("RGBA")
