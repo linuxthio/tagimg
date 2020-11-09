@@ -55,5 +55,11 @@ def tagimg(filename, prenom, nom, ratio):
 print(w)
 """
 
-
+def main():
+    import sys
+    nb=sys.argv
+    tagimg(nb[1],nb[2],nb[3],nb[4])
+    
+if __name__=='__main__':
+    main()
 
