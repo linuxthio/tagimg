@@ -2,7 +2,7 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 from pathlib import Path
-
+import datetime
 
 def getname_without_ext(filename):
     s = filename.split('.')
@@ -11,8 +11,13 @@ def getname_without_ext(filename):
     r = '.'.join(s2)
     return [r, ext]
 
+def get_date_hour():
+    x = datetime.datetime.now().__str__().split()
+    _date=x[0]
+    _hour=x[1].split('.')[0]
+    return [_date,_hour]
 
-def tagimg(filename, prenom, nom, ratio):
+def tagimg(filename, prenom='thiongane', nom=get_date_hour()[0], ratio=1):
     """
 
     :param filename: the filename of image : str
@@ -84,7 +89,18 @@ def main():
     import sys
     nb=sys.argv
     print(len(nb))
-    tagimg(nb[1],nb[2],nb[3],nb[4])
+    if len(nb)==1:
+        print('you are forget the image filename')
+    elif len(nb)==2:
+        tagimg(nb[1])
+    elif len(nb)==3:
+        tagimg(nb[1],nb[2])
+    elif len(nb)==4:
+        tagimg(nb[1],nb[2],nb[3])
+    elif len(nb)==5:
+        tagimg(nb[1],nb[2],nb[3],nb[4])
+    else:
+        print("Error:: missing parametre")
     
 if __name__=='__main__':
     main()
